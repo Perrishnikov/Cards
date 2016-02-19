@@ -8,7 +8,7 @@ Another edit                                                                    
 .card {
   background-image: url("graphics/cardback.gif");
   border-color: #808080 #000000 #000000 #808080;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   font-size: 20pt;
   position: absolute;
