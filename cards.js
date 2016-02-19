@@ -1,6 +1,6 @@
 /******************************************************************************
 * Playing Card Objects                                                        *
-*                                                                             *
+*  Change 1                                                                      *
 * Do not remove this notice.                                                  *
 *                                                                             *
 * Copyright 2001 by Mike Hall                                                 *
