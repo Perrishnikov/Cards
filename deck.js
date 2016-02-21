@@ -5,33 +5,38 @@
       var numCards; //set in cards.js stackMakeDeck()
       var numInDeck;
       var numInDiscard = 0;
+      var numInHand = 0;
 
       window.onload = init;
+      
       function init() {
 
         deck     = new Stack();
         hand     = new Stack();
         discards = new Stack();
         
-        // console.log(numInDiscard);
         deck.makeDeck(numDecks); //set initial # of decks
+        
         displayNumCards(); //info.js
-        numInDiscard = 0;
+        
         displayNumInDiscard(); //info.js
+        numInHand = 0;
+        
+        displayNumInHand();
 
         display();
       }
 
       function shuffle() {
         if (deck == null) return;
-        deck.shuffle(1); //increase for better shuffling?
+        deck.shuffle(3); //increase for better shuffling?
         console.log("Deck shuffled");
         display();
       }
 
       function deal() {
         var e = document.getElementById("dealNum");
-        var numDealt= e.value; //updates 
+        var numDealt = e.value; //updates 
 
         if (deck == null) return;
 
@@ -41,7 +46,13 @@
           discard();
           for (var i = 0; i < numDealt; i++)
             hand.addCard(deck.deal()); //run addCard, deal from deck
+
+          numInHand = numDealt;// custom code
+          displayNumInHand();// custom code
+
         }
+        
+        // displayNumInHand();
 
         display();
       }
@@ -60,6 +71,7 @@
         //New code to rerun init() with # of decks
         var e = document.getElementById("deckNum");
         numDecks = e.value
+        
         init();
         //Old code to combine other stacks
         // discards.combine(hand);
@@ -74,6 +86,7 @@
 
         // Note: only a fraction of the cards in the deck and discard pile are
         // displayed, just enough to get an idea of the number of cards in each.
+        displayNumInDiscard(); //stack.js stackCardCount()
 
         // deck
         left = 0;
@@ -90,8 +103,8 @@
           el.appendChild(node);
           left += 0.10;
           top  += 0.05;
-        
-        displayNumInDeck(); //info.js
+
+          displayNumInDeck(); //info.js
 
         }
 
@@ -108,8 +121,6 @@
           el.appendChild(node);
           left += 1.00;
           top  += 0.25;
-          //This logs 7//
-          //console.log(hand.cards.length);
         }
 
         //discards
@@ -126,10 +137,5 @@
           el.appendChild(node);
           left += 0.10;
           top  += 0.05;
-          
-          numInDiscard = discards.cards.length; //info.js
-          // console.log(discards.cards.length);
-          displayNumInDiscard()
-
         }
       }

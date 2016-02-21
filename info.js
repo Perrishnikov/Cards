@@ -12,9 +12,12 @@ function displayNumInDeck(){
 
 // form deck.js display discard
 function displayNumInDiscard(){
+	numInDiscard = discards.cards.length;
 	document.getElementById("domNumDiscards").innerHTML = numInDiscard;
 }
 
-function displayNumInDiscard(){
-	document.getElementById("domNumDiscards").innerHTML = numInDiscard;
+//from deck.js display() hand
+function displayNumInHand(){
+	// console.log(x);
+    document.getElementById("domNumHand").innerHTML = numInHand;
 }
