@@ -25,7 +25,7 @@ function Stack() {
 // stackMakeDeck(n): Initializes a stack using 'n' packs of cards.
 //-----------------------------------------------------------------------------
 
-function stackMakeDeck(n) { //n from deck.js shuffle()
+function stackMakeDeck(n) { //n from deck.js unit deck.makeDeck
 
   var ranks = new Array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
   var suits = new Array("C", "D", "H", "S");
