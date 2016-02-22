@@ -17,12 +17,12 @@
         
         deck.makeDeck(numDecks); //set initial # of decks
         
-        displayNumCards(); //info.js
+        // displayNumCards(); //info.js
         
-        displayNumInDiscard(); //info.js
-        numInHand = 0;
+        // displayNumInDiscard(); //info.js
+        // numInHand = 0;
         
-        displayNumInHand();
+        // displayNumInHand();
 
         display();
       }
@@ -36,19 +36,19 @@
 
       function deal() {
         var e = document.getElementById("dealNum");
-        var numDealt = e.value; //updates 
+        // v÷ar numDealt = e.value; //updates 
 
         if (deck == null) return;
 
-        if (deck.cardCount() < numDealt) //run cardCount
+        if (deck.cardCount() < 7) //run cardCount
           alert("Not enough cards.");
         else {
           discard();
-          for (var i = 0; i < numDealt; i++)
+          for (var i = 0; i < 7; i++)
             hand.addCard(deck.deal()); //run addCard, deal from deck
 
-          numInHand = numDealt;// custom code
-          displayNumInHand();// custom code
+          // numInHand = numDealt;// custom code
+          // displayNumInHand();// custom code
 
         }
         
@@ -86,7 +86,7 @@
 
         // Note: only a fraction of the cards in the deck and discard pile are
         // displayed, just enough to get an idea of the number of cards in each.
-        displayNumInDiscard(); //stack.js stackCardCount()
+        // displayNumInDiscard(); //stack.js stackCardCount()
 
         // deck
         left = 0;
@@ -104,7 +104,7 @@
           left += 0.10;
           top  += 0.05;
 
-          displayNumInDeck(); //info.js
+          // displayNumInDeck(); //info.js
 
         }
 

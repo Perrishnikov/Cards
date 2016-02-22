@@ -1,27 +1,24 @@
-/******************************************************************************
-* Playing Card Styles                                                         *
-Another edit                                                                           *
-* Copyright 2001 by Mike Hall                                                 *
-* Please see http://www.brainjar.com for terms of use.                        *
-******************************************************************************/
+/* -------- color guide ----------
+#3c6b92 : main blue
+#6acce2 : light blue
+#2c566a : teal accent
+#193742 : dark blue
+#e1d8b9 : sand accent
+#cb7d20 : orange accent
+#51341a : brown
+#995522 : dark orange (used for links or high contrast accents)
+#cb202a : red accent (this color does not encode well, use only for small accents)
+#896287 : purple
+*/
 
 .card {
-  background-image: url("graphics/cardback.gif");
+  background-image: url("../_graphics/cardback.gif");
   border-color: #808080 #000000 #000000 #808080;
   border-width: 1px;
   border-style: solid;
   font-size: 20pt;
   position: absolute;
   width:  3.75em;
-  height: 5.00em;
-}
-
-.cardArea {
-  font-size: 20pt;
-  float: left;
-  margin-right: 1em;
-  position: relative;
-  width:  4.50em;
   height: 5.00em;
 }
 
