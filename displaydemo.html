@@ -1,116 +1,62 @@
-<html>
-  <head>
-    <title>CardCreator</title>
-    <link href="cards.css" rel="stylesheet" type="text/css" />
-    <script src="deck.js"></script>
-  </head>
-  
-  <body>
-    <div id="header">
-      <h3>Card Display Demo</h3>
-        <table>
-          <tr>
-            <td id="settings">  
-              <table border="1" style="border-collapse:collapse; border:1px solid black; color:#000000; width:300" cellpadding="3" cellspacing="3">
-                
-                <tr>
-                  <td align="center">Fixed Settings</td>
-                  <td></td>
-                </tr>
-                
-                <tr>
-                  <td>Number of Cards to Deal:</td>
-                  <td>
-                    <select id="dealNum">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>  
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7" selected="selected">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    </select></td>
-                </tr>
-                
-                <tr>
-                  <td>Number of Decks (Reset):</td>
-                  <td>
-                    <select id="deckNum">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option></select></td>
-                </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Card Creator</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-                <tr>
-                  <td>Hand Limit:</td>
-                  <td>
-                    <select id="handLimit">
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option></select></td>
-                </tr>
+    <link rel="stylesheet" href="_css/normalize.css">
+    <link rel="stylesheet" href="_css/skeleton.css">
+    <link href="_css/cards.css" rel="stylesheet" type="text/css"/>  
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 
-                <tr>
-                  <td align="center">Dynamic Settings</td>
-                  <td></td>
-                </tr>  
-
-              </table></td>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="mainColumn"  id="createArea">
+            <div id="messageArea"><p>Message:</div>
             
-            <td id="information">  
-              <table border="1" style="border-collapse:collapse; border:1px solid black; color:#000000; width:300" cellpadding="3" cellspacing="3">
-                <tr>
-                  <td>Total Number of Cards:</td>
-                  <td id="domNumCards"></td>
-                </tr>
+            <form>
+                <p># of cards to create:
+                <input type ="text" id="numCards" placeholder="13">
+                <p>
+                <input type = "button" id="addCard" value="+ Card">
+                <p>
+                <input type = "button" id="addTag" value="+ Tag">
+                <p>
+                <input type = "button" id="submitCards" value="Submit">
+            </form>
+            
+            
+            
+        </div>
+        
+<!--         <div class="mainColumn" id="deckArea">
+            <div class="leftColumn">
+                <ul>
+                <li><a href="" onclick="shuffle();return false;">Shuffle Deck</a></li>
+                <li><a href="" onclick="deal();return false;">Deal</a></li>
+                <li><a href="" onclick="discard();return false;">Discard</a></li>
+                <li><a href="" onclick="reset();return false;">Reset Deck</a></li>
+            </div>
+          
+            <div class="rightColumn" id="playArea01">
+                <h4>Deck 01</h4>
+                <p>This is Area 01.</p>
+                <div id="deck"     class="cardArea"></div>
+                <div id="hand"     class="cardArea" style="width:10em;"></div>
+                <div id="discards" class="cardArea"></div>
+            </div>
+        </div> -->
 
-                <tr>
-                  <td>Number of Cards Remaining in Deck:</td>
-                  <td id="domNumCardsDeck"></td>
-                </tr>
-
-                <tr>
-                  <td>Number of Cards in Hand:</td>
-                  <td id="domNumHand"></td>
-                </tr>
-
-                <tr>
-                  <td>Number of Cards in Discard:</td>
-                  <td id="domNumDiscards"></td>
-                </tr>
-
-              </table></td>
-          </tr>       
-        </table>   
-    </div>
-    <div id="middle">
-      <p>This page shows how cards can be displayed using some DHTML. Again, use
-      the links below to shuffle the deck, deal a hand or return used cards to the
-      deck.</p>
-
-      <p>
-      <a href="" onclick="shuffle();return false;">Shuffle Deck</a>
-      |
-      <a href="" onclick="deal();return false;">Deal</a>
-      |
-      <a href="" onclick="discard();return false;">Discard</a>
-      |
-      <a href="" onclick="reset();return false;">Reset Deck</a>
-      </p>
-    </div>
-    <div id="playArea">
-      <div id="deck"     class="cardArea"></div>
-      <div id="hand"     class="cardArea" style="width:10em;"></div>
-      <div id="discards" class="cardArea"></div>
     </div>
 
-    <script src="cards.js"></script>      
-    <script src="info.js"></script>
-    <script src="stack.js"></script>  
-  
-  </body>
+<script src="_scripts/main.js"></script>
+<script src="_scripts/cards.js"></script>
+<script src="_scripts/stack.js"></script>
+<script src="_scripts/info.js"></script>
+
+</body>
 </html>
