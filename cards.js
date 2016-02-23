@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // Card constructor function.
 //-----------------------------------------------------------------------------
-
+// from stack.js stackMakeDeck()
 function Card(rank, suit) {
 
   this.rank = rank;
@@ -101,13 +101,19 @@ var cardImg3 = new Image(); cardImg3.src= "graphics/king.gif";
 
 function cardCreateNode() {
 
-  var cardNode, frontNode, indexNode, spotNode, tempNode, textNode;
-  var indexStr, spotChar;
+  var cardNode; //will create element "DIV"
+  var frontNode; 
+  var indexNode; 
+  var spotNode; 
+  var tempNode; 
+  var textNode;
 
+    var nameNode;//////////////////////////////////////////////////  
+  
   // This is the main node, a DIV tag.
 
   cardNode = document.createElement("DIV");
-  cardNode.className = "card";
+  cardNode.className = "card"; //create HTML class called "card"
 
   // Build the front of card.
 
@@ -116,7 +122,7 @@ function cardCreateNode() {
 
   // Get proper character for card suit and change font color if necessary.
 
-  spotChar = "\u00a0";
+  var spotChar = "\u00a0";
   switch (this.suit) {
     case "C" :
       spotChar = "\u2663";
@@ -134,19 +140,40 @@ function cardCreateNode() {
       break;
   }
 
+  //my node //use CSS to shape it
+    nameStr = this.toString();
+    if (this.toString() == "")
+
+    nameStr = "";//"\u00a0"; //why is this here?
+    
+    nameNode = document.createElement("DIV");
+    nameNode.className = "cardName";
+
+    textNode = document.createTextNode(nameStr);
+    nameNode.appendChild(textNode);
+    nameNode.appendChild(document.createElement("BR"));
+
+    frontNode.appendChild(nameNode);
+
   // Create and add the index (rank) to the upper-left corner of the card.
 
-  indexStr = this.rank;
-  if (this.toString() == "")
-    indexStr = "\u00a0";
+  var indexStr = this.rank; //yes
+  if (this.toString() == "") //yes
+  
+  indexStr = "\u00a0";
   spotNode = document.createElement("DIV");
   spotNode.className = "index";
+
   textNode = document.createTextNode(indexStr);
+
   spotNode.appendChild(textNode);
   spotNode.appendChild(document.createElement("BR"));
+
   textNode = document.createTextNode(spotChar);
   spotNode.appendChild(textNode);
+
   frontNode.appendChild(spotNode);
+
 
   // Create and add spots based on card rank (Ace thru 10).
 
@@ -159,65 +186,65 @@ function cardCreateNode() {
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "3" || this.rank == "5" || this.rank == "9") {
-    spotNode.className = "spotB3";
+    spotNode.className = "spot B3";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "2" || this.rank == "3") {
-    spotNode.className = "spotB1";
+    spotNode.className = "spot B1";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "2" || this.rank == "3") {
-    spotNode.className = "spotB5";
+    spotNode.className = "spot B5";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "4" || this.rank == "5" || this.rank == "6" ||
       this.rank == "7" || this.rank == "8" || this.rank == "9" ||
       this.rank == "10") {
-    spotNode.className = "spotA1";
+    spotNode.className = "spot A1";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotA5";
+    spotNode.className = "spot A5";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC1";
+    spotNode.className = "spot C1";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC5";
+    spotNode.className = "spot C5";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "6" || this.rank == "7" || this.rank == "8") {
-    spotNode.className = "spotA3";
+    spotNode.className = "spot A3";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC3";
+    spotNode.className = "spot C3";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "7" || this.rank == "8" || this.rank == "10") {
-    spotNode.className = "spotB2";
+    spotNode.className = "spot B2";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "8" || this.rank == "10") {
-    spotNode.className = "spotB4";
+    spotNode.className = "spot B4";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
   if (this.rank == "9" || this.rank == "10") {
-    spotNode.className = "spotA2";
+    spotNode.className = "spot A2";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotA4";
+    spotNode.className = "spot A4";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC2";
+    spotNode.className = "spot C2";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC4";
+    spotNode.className = "spot C4";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
@@ -238,10 +265,10 @@ function cardCreateNode() {
 
   if (this.rank == "J" || this.rank == "Q" || this.rank == "K") {
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotA1";
+    spotNode.className = "spot A1";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
-    spotNode.className = "spotC5";
+    spotNode.className = "spot C5";
     tempNode = spotNode.cloneNode(true);
     frontNode.appendChild(tempNode);
   }
