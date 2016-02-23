@@ -7,13 +7,24 @@ Another edit                                                                    
 
 .card {
   background-image: url("graphics/cardback.gif");
-  border-color: #808080 #000000 #000000 #808080;
-  border-width: 1px;
-  border-style: solid;
+
   font-size: 20pt;
   position: absolute;
   width:  3.75em;
   height: 5.00em;
+  border-radius: 3px;
+  border: 1px solid gray;
+
+}
+.cardName {
+  font-size: 40%;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  right: 0.25em;
+  top:  0.35em;
+  border-radius: 1px; 
+  border: 1px solid black;
 }
 
 .cardArea {
@@ -43,7 +54,8 @@ Another edit                                                                    
   height: 100%;
 }
 
-.red { color: #ff0000; }
+/*appending red color to class from cards.js spotChar*/
+.red { color: #ff0000; } 
 
 .index {
   font-size: 50%;
@@ -52,6 +64,7 @@ Another edit                                                                    
   position: absolute;
   left: 0.25em;
   top:  0.25em;
+  border: 1px solid blue;
 }
 
 .ace {
@@ -70,20 +83,25 @@ Another edit                                                                    
   height: 4.0em;
 }
 
-.spotA1 { position: absolute; left: 0.60em; top: 0.5em; }
-.spotA2 { position: absolute; left: 0.60em; top: 1.5em; }
-.spotA3 { position: absolute; left: 0.60em; top: 2.0em; }
-.spotA4 { position: absolute; left: 0.60em; top: 2.5em; }
-.spotA5 { position: absolute; left: 0.60em; top: 3.5em; }
+.spot{
+  border: 1px solid green;
+  position: absolute; 
+}
 
-.spotB1 { position: absolute; left: 1.55em; top: 0.5em; }
-.spotB2 { position: absolute; left: 1.55em; top: 1.0em; }
-.spotB3 { position: absolute; left: 1.55em; top: 2.0em; }
-.spotB4 { position: absolute; left: 1.55em; top: 3.0em; }
-.spotB5 { position: absolute; left: 1.55em; top: 3.5em; }
+.A1 { left: 0.60em; top: 0.5em; }
+.A2 { left: 0.60em; top: 1.5em; }
+.A3 { left: 0.60em; top: 2.0em; }
+.A4 { left: 0.60em; top: 2.5em; }
+.A5 { left: 0.60em; top: 3.5em; }
 
-.spotC1 { position: absolute; left: 2.50em; top: 0.5em; }
-.spotC2 { position: absolute; left: 2.50em; top: 1.5em; }
-.spotC3 { position: absolute; left: 2.50em; top: 2.0em; }
-.spotC4 { position: absolute; left: 2.50em; top: 2.5em; }
-.spotC5 { position: absolute; left: 2.50em; top: 3.5em; }
+.B1 { left: 1.55em; top: 0.5em; }
+.B2 { left: 1.55em; top: 1.0em; }
+.B3 { left: 1.55em; top: 2.0em; }
+.B4 { left: 1.55em; top: 3.0em; }
+.B5 { left: 1.55em; top: 3.5em; }
+
+.C1 { left: 2.50em; top: 0.5em; }
+.C2 { left: 2.50em; top: 1.5em; }
+.C3 { left: 2.50em; top: 2.0em; }
+.C4 { left: 2.50em; top: 2.5em; }
+.C5 { left: 2.50em; top: 3.5em; }

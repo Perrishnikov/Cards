@@ -10,10 +10,10 @@ function Stack() {
 
   // Create an empty array of cards.
 
-  this.cards = new Array();
+  this.cards     = new Array();
 
-  this.makeDeck  = stackMakeDeck;
-  this.shuffle   = stackShuffle;
+  this.makeDeck  = stackMakeDeck; //from deck.js init(), to below
+  this.shuffle   = stackShuffle; //from deck.js shuffle(), to below
   this.deal      = stackDeal;
   this.draw      = stackDraw;
   this.addCard   = stackAddCard;
