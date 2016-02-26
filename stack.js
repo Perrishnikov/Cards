@@ -1,3 +1,4 @@
+"use strict";
 //=============================================================================
 // Stack Object
 //=============================================================================
@@ -10,61 +11,45 @@ function Stack() {
 
   // Create an empty array of cards.
 
-  this.cards = new Array();
+  this.cards     = new Array();
 
-  this.makeDeck  = stackMakeDeck;
-  this.shuffle   = stackShuffle;
+  this.makeStack  = stackMakeStack; //from deck.js init(), to below
   this.deal      = stackDeal;
   this.draw      = stackDraw;
   this.addCard   = stackAddCard;
-  this.combine   = stackCombine;
-  this.cardCount = stackCardCount;
-}
-
-//-----------------------------------------------------------------------------
-// stackMakeDeck(n): Initializes a stack using 'n' packs of cards.
-//-----------------------------------------------------------------------------
-
-function stackMakeDeck(n) { //n from deck.js unit deck.makeDeck
-
-  var ranks = new Array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
-  var suits = new Array("C", "D", "H", "S");
   
-  m = ranks.length * suits.length;
-
-  // Set array of cards.
-
-  this.cards = new Array(n * m);
-
-  // Fill the array with 'n' packs of cards.
-
-  for (var i = 0; i < n; i++) //# of decks
-    for (var j = 0; j < suits.length; j++) //# of suits
-      for (var k = 0; k < ranks.length; k++) //# of ranks
-        this.cards[i * m + j * ranks.length + k] = new Card(ranks[k], suits[j]);
-  
-  numCards = this.cards.length; // deck.js variable. Called in info.js
-
 }
 
 //-----------------------------------------------------------------------------
-// stackShuffle(n): Shuffles a stack of cards 'n' times. 
+// stackMakeStack(n): Initializes a stack using 'n' packs of cards.
 //-----------------------------------------------------------------------------
 
-function stackShuffle(n) {
+function stackMakeStack() { //n from deck.js unit deck.makeStack
 
-  var temp;
+    // var ranks = new Array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
 
-  // Shuffle the stack 'n' times.
+    var ranks = model.deck01;
+    var suits = new Array("C", "D", "H", "S");
 
-  for (var i = 0; i < n; i++)
-    for (var j = 0; j < this.cards.length; j++) {
-      var k = Math.floor(Math.random() * this.cards.length);
-      temp = this.cards[j];
-      this.cards[j] = this.cards[k];
-      this.cards[k] = temp;
-    }
+    var m = ranks * suits.length;
+    console.log("Total # of cards: " + m);
+
+    // Set array of cards.
+
+    this.cards = new Array(n * m);
+
+    // Fill the array with 'n' packs of cards.
+    var n = 1
+    for (var i = 0; i < n; i++) //# of decks
+      for (var j = 0; j < suits.length; j++) //# of suits
+          for (var k = 0; k < n ; k++) //# of ranks
+              this.cards[m + j * ranks.length + k] = new Card(ranks[k], suits[j]);
+
+    console.log(this.cards.length);  
+    // numCards = this.cards.length; // deck.js variable. Called in info.js
+
 }
+
 
 //-----------------------------------------------------------------------------
 // stackDeal(): Removes the first card in the stack and returns it.
@@ -103,26 +88,4 @@ function stackDraw(n) {
 function stackAddCard(card) {
 
   this.cards.push(card);
-}
-
-//-----------------------------------------------------------------------------
-// stackCombine(stack): Adds the cards in the given stack to the current one.
-// The given stack is emptied.
-//-----------------------------------------------------------------------------
-
-function stackCombine(stack) {
-
-  this.cards = this.cards.concat(stack.cards);
-  stack.cards = new Array();
-}
-
-//-----------------------------------------------------------------------------
-// stackCardCount(): Returns the number of cards currently in the stack.
-//-----------------------------------------------------------------------------
-// used in deck.js display() "hand" and "discards"
-function stackCardCount() {  
-  
-  numInDeck = this.cards.length; //deck.js global variable, info.js
-  numInHand = this.cards.length;
-  return this.cards.length;
 }
